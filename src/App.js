@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import Home from "./components/Home";
 import Board from "./components/Board";
-import Header from "./components/WinnerMessage";
+import WinnerMessage from "./components/WinnerMessage";
 
 const App = () => {
   const [rows, setRows] = useState(4); //no of rows
@@ -48,19 +48,21 @@ const App = () => {
     setCurrentPlayer(currentPlayer === "Red" ? "Yellow" : "Red");
   };
 
-  //function to drop the token to the cell where the user clicks
-  const dropToken = (row, col) => {
-    if (winner || grid[row][col] !== " ") return;
-    const newGrid = [...grid];
-    newGrid[row][col] = currentPlayer;
-    setGrid(newGrid);
-    //checking if there is a winner
-    if (checkWinner(newGrid, row, col, currentPlayer)) {
-      setWinner(currentPlayer);
-    } else {
-      switchPlayer(); //if no winner switch to he next player
-    }
-  };
+  //callback function to drop the token to the cell where the user clicks
+  const dropToken = useCallback(
+    (row, col) => {
+      if (winner || grid[row][col] !== " ") return;
+      const newGrid = [...grid];
+      newGrid[row][col] = currentPlayer;
+      setGrid(newGrid);
+      if (checkWinner(newGrid, row, col, currentPlayer)) {
+        setWinner(currentPlayer);
+      } else {
+        switchPlayer();
+      }
+    },
+    [winner, grid, currentPlayer]
+  );
 
   //function to check if the current player is the winner
   const checkWinner = (grid, row, col, player) => {
@@ -104,9 +106,10 @@ const App = () => {
       <div className="mt-10 mb-12 text-4xl text-center font-extrabold text-slate-900">
         CONNECT FOUR GAME
       </div>
+
       {gameStarted ? (
         <>
-          <Header currentPlayer={currentPlayer} winner={winner} />
+          <WinnerMessage currentPlayer={currentPlayer} winner={winner} />
           <Board
             grid={grid}
             hoverRow={hoverRow}

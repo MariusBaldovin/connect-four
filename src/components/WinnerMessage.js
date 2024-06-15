@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ currentPlayer, winner }) => {
+const WinnerMessage = ({ currentPlayer, winner }) => {
   return (
     <div className="header mb-4">
       {winner ? (
@@ -12,4 +12,4 @@ const Header = ({ currentPlayer, winner }) => {
   );
 };
 
-export default Header;
+export default WinnerMessage;
