@@ -1,4 +1,7 @@
 import React from "react";
+import Board from "./components/Board";
+import Cell from "./components/Cell";
+import Home from "./components/Home";
 
 const App = () => {
   return (
