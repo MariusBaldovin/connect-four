@@ -1,10 +1,10 @@
-# CONNECT FOUR GAME
+# CONNECT FOUR-GAME
 
 This project is built using React.js and Tailwind CSS:
 
-- **ReactJS**: Javascript framework: chosen for its component-based architecture, which helps in building scalable and maintainable applications.
+- **ReactJS**: Javascript framework: chosen for its component-based architecture, which helps build scalable and maintainable applications. The choice of Javascript and ReactJS framework was due to the familiarity and past experience and due to simplicity of building the UI.
 
-- **Tailwind CSS**: Utilised due to its flexibility and speeds up development by eliminating the need for writing custom CSS.
+- **Tailwind CSS**: Utilised due to its flexibility, it speeds up development by eliminating the need to write custom CSS.
 
 ## Getting Started
 
@@ -12,7 +12,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-Make sure you have Node.js and npm installed on your machine.
+Could you make sure you have Node.js and npm installed on your machine?
 
 ### Installation
 
